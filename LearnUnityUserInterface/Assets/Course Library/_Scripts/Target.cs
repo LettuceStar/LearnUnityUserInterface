@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +13,9 @@ public class Target : MonoBehaviour
     private float _ySpawnPos = -2;
 
     private UIGameManager _gameMgr;
+
+    public int targetScore;
+    public ParticleSystem explosionParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +51,41 @@ public class Target : MonoBehaviour
 
     private void OnMouseDown()
     {
-        _gameMgr.UpdateScore(5);
+        //Debug.Log(this.gameObject.name);
+
+        //string objName = this.gameObject.name;
+
+        //int score = 0;
+
+        //switch (objName)
+        //{
+        //    case "Good 01(Clone)":
+        //        score = 1;
+        //        break;
+        //    case "Good 02(Clone)":
+        //        score = 2;
+        //        break;
+        //    case "Good 03(Clone)":
+        //        score = 3;
+        //        break;
+        //    case "Bad 01(Clone)":
+        //        score = -5;
+        //        break;
+        //    default:
+        //        Debug.Log("未找到该目标");
+        //        break;
+        //}
+
+        //_gameMgr.UpdateScore(score);
+
+        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+
+        if (this.tag == "Bad") {
+            _gameMgr.GameOver();
+        }
+
+        _gameMgr.UpdateScore(targetScore);
+
         Destroy(gameObject);
     }
 
