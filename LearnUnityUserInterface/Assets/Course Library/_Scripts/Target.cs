@@ -12,7 +12,7 @@ public class Target : MonoBehaviour
     private float _xRange = 4;
     private float _ySpawnPos = -2;
 
-    private UIGameManager _gameMgr;
+    private UIGameManager _uiGameMgr;
 
     public int targetScore;
     public ParticleSystem explosionParticle;
@@ -20,7 +20,7 @@ public class Target : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _gameMgr = GameObject.Find("Scripts").GetComponent<UIGameManager>();
+        _uiGameMgr = GameObject.Find("Scripts").GetComponent<UIGameManager>();
         _targentRb = GetComponent<Rigidbody>();
         _targentRb.AddForce(RandomForce(), ForceMode.Impulse);
         _targentRb.AddTorque(RandomTorque(), RandomTorque()
@@ -76,21 +76,27 @@ public class Target : MonoBehaviour
         //        break;
         //}
 
-        //_gameMgr.UpdateScore(score);
+        //_uiGameMgr.UpdateScore(score);
 
+        if (_uiGameMgr.isGameActive == false)
+        {
+            return;
+        }
+       
         Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
 
         if (this.tag == "Bad") {
-            _gameMgr.GameOver();
+            _uiGameMgr.GameOver();
         }
 
-        _gameMgr.UpdateScore(targetScore);
+        _uiGameMgr.UpdateScore(targetScore);
 
         Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        _uiGameMgr.LiveCountMinusOne();
         Destroy(gameObject);
     }
 }

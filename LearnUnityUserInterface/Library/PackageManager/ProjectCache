@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638483958440312193
-    m_Hash: 3933917718
+      ticks: 638489303371286777
+    m_Hash: 2499718609
   m_LockFileStatus:
     m_FilePath: C:/Dong/Code/UnityProject/LearnUnityUserInterface/LearnUnityUserInterface/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638483958440394900
-    m_Hash: 331570354
+      ticks: 638489303371328291
+    m_Hash: 2794838815
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -22,6 +22,61 @@ m_LocalPackages:
 m_ProjectPath: C:/Dong/Code/UnityProject/LearnUnityUserInterface/LearnUnityUserInterface/Packages
 m_EditorVersion: 2022.3.3f1 (7cdc2969a641)
 m_ResolvedPackages:
+- packageId: com.akbiggs.unitytimer@https://github.com/akbiggs/UnityTimer.git
+  testable: 0
+  isDirectDependency: 1
+  version: 1.1.0
+  source: 5
+  resolvedPath: C:\Dong\Code\UnityProject\LearnUnityUserInterface\LearnUnityUserInterface\Library\PackageCache\com.akbiggs.unitytimer@4554e279ae
+  assetPath: Packages/com.akbiggs.unitytimer
+  name: com.akbiggs.unitytimer
+  displayName: Timer
+  author:
+    name: Alexander Biggs and Adam Robinson-Yu
+    email: 
+    url: https://github.com/akbiggs/UnityTimer
+  category: 
+  type: 
+  description: Run actions after a delay in Unity3D.
+  status: 0
+  errors: []
+  versions:
+    all: []
+    compatible: []
+    recommended: 
+    deprecated: []
+  dependencies: []
+  resolvedDependencies: []
+  keywords:
+  - timer
+  - coroutine
+  - callback
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
 - packageId: com.unity.collab-proxy@2.3.1
   testable: 0
   isDirectDependency: 1
@@ -837,11 +892,13 @@ m_ResolvedPackages:
     - 1.9.0
     - 1.9.1
     - 1.9.2
+    - 1.9.4
     compatible:
     - 1.8.0
     - 1.9.0
     - 1.9.1
     - 1.9.2
+    - 1.9.4
     recommended: 1.8.0
     deprecated:
     - 1.8.0-pre.1
@@ -3414,6 +3471,7 @@ m_ResolvedPackages:
     - 1.4.1
     - 1.4.2
     - 1.4.3
+    - 1.4.4
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -3433,6 +3491,7 @@ m_ResolvedPackages:
     - 1.4.1
     - 1.4.2
     - 1.4.3
+    - 1.4.4
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
