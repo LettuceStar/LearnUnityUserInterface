@@ -49,54 +49,73 @@ public class Target : MonoBehaviour
         
     }
 
-    private void OnMouseDown()
+    //private void OnMouseDown()
+    //{
+    //    //Debug.Log(this.gameObject.name);
+
+    //    //string objName = this.gameObject.name;
+
+    //    //int score = 0;
+
+    //    //switch (objName)
+    //    //{
+    //    //    case "Good 01(Clone)":
+    //    //        score = 1;
+    //    //        break;
+    //    //    case "Good 02(Clone)":
+    //    //        score = 2;
+    //    //        break;
+    //    //    case "Good 03(Clone)":
+    //    //        score = 3;
+    //    //        break;
+    //    //    case "Bad 01(Clone)":
+    //    //        score = -5;
+    //    //        break;
+    //    //    default:
+    //    //        Debug.Log("未找到该目标");
+    //    //        break;
+    //    //}
+
+    //    //_uiGameMgr.UpdateScore(score);
+
+    //    if (_uiGameMgr.isGameActive == false || _uiGameMgr._isGamePaused == true)
+    //    {
+    //        return;
+    //    }
+       
+    //    Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+
+    //    if (this.tag == "Bad") {
+    //        _uiGameMgr.GameOver();
+    //    }
+
+    //    _uiGameMgr.UpdateScore(targetScore);
+
+    //    Destroy(gameObject);
+    //}
+
+    private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(this.gameObject.name);
+        _uiGameMgr.LiveCountMinusOne();
+        Destroy(gameObject);
+    }
 
-        //string objName = this.gameObject.name;
-
-        //int score = 0;
-
-        //switch (objName)
-        //{
-        //    case "Good 01(Clone)":
-        //        score = 1;
-        //        break;
-        //    case "Good 02(Clone)":
-        //        score = 2;
-        //        break;
-        //    case "Good 03(Clone)":
-        //        score = 3;
-        //        break;
-        //    case "Bad 01(Clone)":
-        //        score = -5;
-        //        break;
-        //    default:
-        //        Debug.Log("未找到该目标");
-        //        break;
-        //}
-
-        //_uiGameMgr.UpdateScore(score);
-
-        if (_uiGameMgr.isGameActive == false)
+    public void DestroyTarget()
+    {
+        if (_uiGameMgr.isGameActive == false || _uiGameMgr._isGamePaused == true)
         {
             return;
         }
-       
+
         Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
 
-        if (this.tag == "Bad") {
+        if (this.tag == "Bad")
+        {
             _uiGameMgr.GameOver();
         }
 
         _uiGameMgr.UpdateScore(targetScore);
 
-        Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        _uiGameMgr.LiveCountMinusOne();
         Destroy(gameObject);
     }
 }

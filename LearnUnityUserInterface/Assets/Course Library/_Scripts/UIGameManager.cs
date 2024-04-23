@@ -26,6 +26,7 @@ public class UIGameManager : MonoBehaviour
     private GameObject _titleScreen;
     private GameObject _gameScreen;
     private GameObject _gameOverScreen;
+    public GameObject pausePanel;
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
@@ -36,9 +37,10 @@ public class UIGameManager : MonoBehaviour
     private Button _easyBtn;
     private Button _mediumBtn;
     private Button _hardBtn;
-    private Button _pauseBtn;
+    //private Button _pauseBtn;
 
     public bool isGameActive;
+    public bool _isGamePaused;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +54,7 @@ public class UIGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PauseGame();
     }
 
 
@@ -66,9 +68,7 @@ public class UIGameManager : MonoBehaviour
         _liveText.text = "Lives: " + _liveNumber;
 
         _timeText = GameObject.Find("Countdown Text").GetComponent<TextMeshProUGUI>();
-        
-        
-
+               
 
         _score = 0;
         scoreText.text = "Score: " + _score;
@@ -92,8 +92,8 @@ public class UIGameManager : MonoBehaviour
         _hardBtn.onClick.AddListener(OnClickHardButton);
         //_restartBtn.gameObject.SetActive(false);
 
-        _pauseBtn = GameObject.Find("Pause Button").GetComponent<Button>();
-        _pauseBtn.onClick.AddListener(OnClickPauseButton);
+        //_pauseBtn = GameObject.Find("Pause Button").GetComponent<Button>();
+        //_pauseBtn.onClick.AddListener(OnClickPauseButton);
 
         _gameScreen.SetActive(false);
         _gameOverScreen.SetActive(false);
@@ -208,5 +208,20 @@ public class UIGameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    private void PauseGame()
+    {
+        if (isGameActive)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Time.timeScale = 0;
+
+                _isGamePaused = !_isGamePaused;
+                pausePanel.SetActive(_isGamePaused);
+                Time.timeScale = _isGamePaused ? 0 : 1;
+
+            }
+        }
+    }
 
 }
