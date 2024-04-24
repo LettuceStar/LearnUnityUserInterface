@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(TrailRenderer), typeof(BoxCollider))]
+//[RequireComponent(typeof(TrailRenderer), typeof(BoxCollider))]
 public class ClickAndSwipe : MonoBehaviour
 {
     private UIGameManager _gameMgr;
@@ -16,7 +16,19 @@ public class ClickAndSwipe : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Awake()
+    //void Awake()
+    //{
+    //    _cam = Camera.main;
+    //    _trail = GetComponent<TrailRenderer>();
+    //    _boxCol = GetComponent<BoxCollider>();
+    //    _trail.enabled = false;
+    //    _boxCol.enabled = false;
+
+    //    _gameMgr = GameObject.Find("Scripts").GetComponent<UIGameManager>();
+    //    //DontDestroyOnLoad(this.gameObject);
+    //}
+
+    private void Start()
     {
         _cam = Camera.main;
         _trail = GetComponent<TrailRenderer>();
