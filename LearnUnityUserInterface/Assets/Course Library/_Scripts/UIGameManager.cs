@@ -42,11 +42,16 @@ public class UIGameManager : MonoBehaviour
     public bool isGameActive;
     public bool _isGamePaused;
 
+    private void Awake()
+    {
+        UIInit();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         
-        UIInit();           
+        //UIInit();           
 
     }
 
